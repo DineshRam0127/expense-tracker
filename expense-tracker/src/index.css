@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root {
+  --overall-background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Soft blue to teal gradient */
+  --primary-color: #f39c12; /* Warm yellow for actions */
+  --secondary-color: #8e44ad; /* Lavender purple for headings */
+  --tertiary-color: #3498db; /* Soft blue for buttons */
+  --add-button-color: #1abc9c; /* Turquoise color for 'Add Transaction' button */
+  --danger-color: #e74c3c; /* Red for delete and expense */
+  --success-color: #2ecc71; /* Green for income */
+  --highlight-color: #f39c12; /* Yellow for highlights */
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  --input-border-color: #dfe4ea; /* Soft border for inputs */
+  --button-hover-color: #16a085; /* Darker turquoise for button hover */
+  --btn-text-color: #ffffff; /* White text on buttons */
+  --input-focus-color: #ff6348; /* Focus color on inputs */
+  --box-background: #ffffff; /* White background for content box */
+  --box-border-color: #e0e0e0; /* Light grey for box border */
+  --box-header-color: #6c5ce7; /* Soft lavender for headers */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background: var(--overall-background); /* Soft gradient background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: var(--box-background);
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  margin: 30px 0;
+  border: 1px solid var(--box-border-color); /* Light border for the container */
+}
+
+h1 {
+  font-size: 2.8em;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.3em;
+  color: var(--box-header-color); /* Lavender color for subheadings */
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+h4 {
+  color: var(--primary-color);
+  font-size: 1.2em;
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+}
+
+.inc-exp-container:hover {
+  transform: translateY(-5px);
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-child {
+  border-right: 1px solid #dfe4ea;
+}
+
+.money {
+  font-size: 1.8em;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.money.plus {
+  color: var(--success-color);
+}
+
+.money.minus {
+  color: var(--danger-color);
+}
+
+label {
+  display: inline-block;
+  margin: 12px 0 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 15px;
+  font-size: 1.2em;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--input-border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: var(--input-focus-color);
+  box-shadow: 0 0 12px rgba(255, 99, 72, 0.4);
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+.btn {
+  cursor: pointer;
+  background: var(--add-button-color); /* Fresh teal color for Add Transaction button */
+  color: var(--btn-text-color);
+  border: none;
+  padding: 14px;
+  font-size: 1.3em;
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background: var(--button-hover-color); /* Hover effect for Add Transaction button */
+  transform: translateY(-4px);
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 18px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+.list li.plus {
+  border-left: 6px solid var(--success-color);
+}
+
+.list li.minus {
+  border-left: 6px solid var(--danger-color);
+}
+
+.list li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.15);
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: var(--danger-color);
+  color: white;
+  font-size: 1.4em;
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.delete-btn:hover {
+  background-color: #e74c3c;
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .inc-exp-container {
+    flex-direction: column;
+  }
+
+  .inc-exp-container > div {
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    font-size: 1.1em;
+    padding: 12px;
+  }
+}

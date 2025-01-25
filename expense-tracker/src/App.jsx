@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTransaction from "./components/AddTransaction";
 import TransactionList from "./components/TransactionList";
 import "./App.css";
@@ -13,6 +13,14 @@ function App() {
     { id: 3, title: "trip-ladakh", amount: -7000 },
     { id: 4, title: "dress", amount: -1500 },
   ]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/expenses')
+      .then((res) => res.json())
+      .then((data) => {
+        setTransactions(data);
+          });
+      }, []);
 
   const onDeleteTransaction = (id) => {
     setTransactions(transactions.filter((transaction) => transaction.id !== id));
